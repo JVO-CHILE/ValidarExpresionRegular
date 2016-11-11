@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>Expresión regular</title>
+		<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+		<script type="text/javascript">
+			
+			$(document).ready(function(){			    
+			    $("#txtEmailID").blur(function(){
+			        var flag = isValidEmail($("#txtEmailID").val());
+			        if(flag == true)
+						$("#flagState").text("Email válido!");
+					else
+						$("#flagState").text("No es un Email válido");
+			    });
+			});
+
+			function isValidEmail(mail){
+			    var flag;
+			    var x = /^[a-zA-Z0-9]{1,}([_\-\.]?[a-zA-Z0-9]{1,})*@[a-zA-Z0-9]{2,}\.[a-zA-Z]{2,3}$/;
+			    var y = /[^notiene]@[a-zA-Z0-9]{2,}\.[a-zA-Z]{2,3}$/;
+
+			    if (x.test(mail) == true && y.test(mail) == true)
+			    	return true;
+			    else
+					return false;
+			}
+
+		</script>
+	</head>
+	<body>
+		Email: <input type="text" id="txtEmailID", name="txtEmail">				
+		<span id="flagState"></span>
+
+		
+	</body>
+</html>
